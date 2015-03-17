@@ -1,0 +1,20 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>uwcwebsite</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="bootstrap.css">
+  </head>
+  <body>
+      <div class="container">
+          <div class="jumbotron">
+              <div class="container">
+                  <h1>Транслітеруй своє ім'я :3</h1>
+              </div>
+          </div>
+      </div>
+  </body>
+</html>
