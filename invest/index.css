@@ -47,7 +47,7 @@
 }
 
 .columns {
-	width: 40vw;
+	width: 45vw;
 	overflow: auto;
 	padding: 50px 0px;
 	float: left;
@@ -157,5 +157,13 @@
 
 .transition {
 	transition: all 0.8s ease;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
 }
 
