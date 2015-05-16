@@ -1,39 +1,146 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext);
+@import 'variables';
+
 @font-face {
-    font-family: 'bkhandyboldcyrboldcyr';
-    src: url('bkhandyboldcyr-webfont.eot');
-    src: url('bkhandyboldcyr-webfont.eot?#iefix') format('embedded-opentype'),
-         url('bkhandyboldcyr-webfont.ttf') format('truetype'),
-         url('bkhandyboldcyr-webfont.svg#bkhandyboldcyrboldcyr') format('svg');
+    font-family: 'playtime_cyrillicregular';
+    src: 	url('playtime_cyr2-webfont.eot');
+    src: 	url('playtime_cyr2-webfont.eot?#iefix') format('embedded-opentype'),
+		url('playtime_cyr2-webfont.woff2') format('woff2'),
+         	url('playtime_cyr2-webfont.woff') format('woff'),
+         	url('playtime_cyr2-webfont.ttf') format('truetype'),
+        	url('playtime_cyr2-webfont.svg#playtime_cyrillicregular') format('svg');
     font-weight: normal;
     font-style: normal;
+
+}
+
+@mixin transition($sec) {
+	-webkit-transition: all $sec ease-out;
+	-moz-transition: all $sec ease-out;
+	-ms-transition: all $sec ease-out;
+	-o-transition: all $sec ease-out;
+	transition: all $sec ease-out;
 }
 
 body {
 	background: url('assets/texture.png');
-	font-family: 'bkhandyboldcyrboldcyr', comic-sans;
+	font-family: 'playtime_cyrillicregular', comic-sans;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	color: $font;
+	font-size: 2vw;
+}
+
+header {
+	font-size: 1em;
+	height: 15vh;
+
+	.logo {
+		height: 100%;
+		width: 15vw;
+		float: left;
+		background: url('assets/logo.svg') center center no-repeat;
+		background-size: 100%;
+	}
+
+	.menu {
+		height: 100%;
+		width: 65vw;
+	}
+
+}
+
+a {
+	color: $font;
+	text-decoration: none;
+
+	@include transition(0.2s);
+
+	&:hover {
+		color: rgba($font, 0.7);
+	}
+}
+
+footer {
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.5em;
+	height: 17vh;
+
+	.info {
+		font-size: 2em;
+		padding-left: 1.7em;
+
+
+		&.email {
+			background: url('assets/email.svg') no-repeat;
+			background-position-y: 0.2em;
+			background-size: 1.5em 1em;
+		}
+
+		&.mobile {
+			background: url('assets/mobile.svg') no-repeat;
+			background-position-y: 0.2em;
+			background-size: 1.5em 1em;
+		}
+	}
+}
+
+#container {
+	padding: 0px 2.5vw;
 }
 
 #loader {
-	position: absolute;
-	height: 700px;
+	height: 68vh;
 	width: 100%;
-	top: 50%;
-	margin-top: -350px;
+	font-size: 0.7em;
 }
 
 .border1 {
-	background: url('assets/border1.svg') no-repeat;
-	background-size: 100%;
+	background: url('assets/border1.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .main {
-	width: 600px;
-	height: 675px;
+	width: 65vw;
+	height: 22em;
+
+	.text {
+		padding: 1em 2em;
+	}
+	
 }
 
 .margin-middle {
 	margin: 0 auto;
 }
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn { 
+	display: block;
+	text-align: center;
+
+	&.btn-playtime {
+		font-size: 1.2em;
+		width: 30%;
+		height: 1.5em;
+		background: url('assets/marker_button.png') center center no-repeat;
+		background-size: 100% 100%;
+	}
+}
+
+#artwork {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 35vw;
+	height: 35vh;
+	background: url('assets/home-footer.png') center bottom no-repeat;
+	background-size: 100%;
+}
+
