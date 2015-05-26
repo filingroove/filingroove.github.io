@@ -226,7 +226,7 @@ a.btn.fb {
  /* Large Devices, Wide Screens */
     @media (max-width : 1200px) {
         body {
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .wrap {
