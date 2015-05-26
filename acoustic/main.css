@@ -65,6 +65,7 @@ body {
 .info__about {
     max-width: 65%;
     float: left;
+    text-align: left;
     margin: 0;
 }
 .info__begin {
@@ -83,7 +84,8 @@ body {
 }
 .guests__lineup {
     display: flex;
-    justify-content: space-between;
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
     margin: 15px 0px;
 }
 .guests__one {
@@ -137,8 +139,11 @@ body {
 .partners {
     min-height: 10em;
     display: flex;
+    display: -webkit-flex;
     justify-content: center;
+    -webkit-justify-content: center;
     align-items: center;
+    -webkit-align-items: center;
     margin: 25px auto !important;
 }
 .partner__link {
@@ -151,10 +156,17 @@ body {
 .partner__link:hover {
     opacity: 0.7;
 }
+.partner-radio {
+    background: url(radiokpi-logo-vector.png) center no-repeat;
+    background-size: contain;
+    height: 10em;
+    
+}
 .partner-live {
     background: url(icon-live.png) center no-repeat;
     background-size: contain;
     height: 10em;
+    margin: 0px;
 }
 .partner-plcb {
     background: url(icon-plcb.png) center no-repeat;
