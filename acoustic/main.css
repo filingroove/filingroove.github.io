@@ -7,6 +7,12 @@ body {
     background-size: contain;
 }
 
+.block {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .marathon {
     width: 100%;
     font-weight: 400;
@@ -107,6 +113,26 @@ body {
     margin-bottom: 2.3vh;
     box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.5);
 }
+.youtube_link {
+    width: 100%;
+    height: 37vw;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 2.3vh;
+    overflow: hidden;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(0,0,0,0.5);
+}
+
+.youtube_link>img {
+    width: 30%;
+    background-size: contain;
+    margin: 0 auto;
+}
+
 .partners {
     min-height: 10em;
     display: flex;
