@@ -86,6 +86,7 @@ body {
     display: flex;
     display: -webkit-flex;
     -webkit-justify-content: space-between;
+    justify-content: space-between;
     margin: 15px 0px;
 }
 .guests__one {
