@@ -4,6 +4,7 @@ body {
     background: #41525c center url(mar-bg.jpg) repeat-y;
     font-family: 'Open Sans', 'Arial', sans-serif;
     font-size: 18px;
+    background-size: cover;
 }
 
 .parallax-bg {
@@ -81,12 +82,6 @@ body {
     justify-content: space-between;
     margin: 15px 0px;
 }
-/*.guests__lineup:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
-}*/
-
 .guests__one {
     color: #fff;
     font-size: 1.5em;
@@ -94,6 +89,7 @@ body {
 .guests__one-big {
     font-size: 2.5em;
 }
+
 .guests__link {
     display: inline-block;
     color: inherit;
@@ -105,7 +101,7 @@ body {
     transition: .3s;
 }
 .player__youtube {
-    width: 85vw;
+    width: 100%;
     height: 85vh;
     /* margin: 15px 0; */
     margin: 0 auto;
@@ -114,41 +110,40 @@ body {
     box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.5);
 }
 .partners {
-    min-height: 155px;
-    margin: 15px auto;
-    padding: 10px 0;
-    width: 88vw;
+    min-height: 10em;
     display: flex;
-    justify-content: space-around;
-}
-.partner {
-    display: inline-block;
-    height: 155px;
-    width: 150px;
-    background: url(partners_sprite.png) 0 0 no-repeat;
-    margin: 0 5px;
-}
-.partner-live {
-    background-position: -157px 0;
-    width: 107px;
-}
-.partner-plcb {
-    background-position: -270px 0;
-    width: 150px;
-}
-.partner-comma {
-    background-position: -425px 0;
-    width: 98px;
-}
-.partner-vidro {
-    background-position: -528px 0;
-    width: 370px;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto !important;
 }
 .partner__link {
-    width: 100%;
-    height: 155px;
+    min-height: 10em;
     display: block;
+    width: 10em;
+    transition: all 0.3s ease 0s;
+    margin: 0px 20px;
 }
+
+.partner__link:hover {
+    opacity: 0.7;
+}
+.partner-live {
+    background: url(icon-live.png) center no-repeat;
+    background-size: contain;
+}
+.partner-plcb {
+    background: url(icon-plcb.png) center no-repeat;
+    background-size: contain;
+}
+.partner-comma {
+    background: url(icon-comma.png) center no-repeat;
+    background-size: contain;
+}
+.partner-vidro {
+    background: url(icon-vidro.png) center no-repeat;
+    background-size: contain;
+}
+
 .comments {
     background: rgba(255,255,255,0.9);
     color: #fff !important;
