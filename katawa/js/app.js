@@ -130,7 +130,7 @@ var app = function() {
 		},
 		next: function(element) {
 
-			if ($('.answer.chosen').lenght > 0) {
+			if ($('.answer.chosen').length > 0) {
 
 				$('#question').addClass('crossfade');
 
