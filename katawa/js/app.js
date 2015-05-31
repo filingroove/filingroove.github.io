@@ -32,7 +32,7 @@ var app = function() {
 		init: function() {
 			console.info("Initializing...");
 
-			$.getJSON("/json/questions.json", function(data) {
+			$.getJSON("json/questions.json", function(data) {
 				
 				qdb = data;
 				console.info("Done!");
