@@ -29,7 +29,8 @@
     <meta name="twitter:url" content="http://r.kpi.ua/acousticmarathon/"/>
     <meta name="twitter:description" content="Абсолютно новий формат ефіру Радіо КПІ. Чотири години музиканти знаходитимуться в студії та по черзі гратимуть акустичні варіанти своїх пісень">
     <meta name="twitter:image" content="http://r.kpi.ua/acousticmarathon/acoustic-fest.jpg">
-
+    
+    <link rel="stylesheet" type="text/css" href="player.css">
     <link rel="stylesheet" type="text/css" href="main.css"/>
     <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="cssua.min.js"></script>
@@ -43,16 +44,40 @@
             </header>
 
             <div class="player">
-                <iframe class="player__youtube" src="https://www.youtube.com/embed/3rvvmpdB71s?autoplay=1" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.youtube.com/watch?v=3rvvmpdB71s" class="youtube_link">
-                    <span>Дивитись на Youtube</span><br>
-                    <img src="youtube17.png" alt="youtube icon">
-                </a>
+                <div id="player">
+                    
+                    <div id="player-btn" onclick="radioClick(true)">
+                        <span id="radioIcon" class="ricon ricon-play" aria-hidden="true"></span>
+                    </div>
+                    
+                    <div id="player-title">
+                        <a href="http://r.kpi.ua/">РАДИО КПИ</a>
+                        <span id="dot">:</span>
+                    </div>
+
+                    <div id="player-song" onclick="copyToClipboard()">
+                        <span style="position: relative; left: 0px;" id="songTitle">5 vymir - Так тихо</span>
+                    </div>
+
+                </div>
+                <div id="video">
+                    <iframe id="yt" class="player__youtube" src="https://www.youtube.com/embed/3rvvmpdB71s?autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=3rvvmpdB71s" class="youtube_link">
+                        <span>Дивитись на Youtube</span><br>
+                        <img src="youtube17.png" alt="youtube icon">
+                    </a>
+                </div>
             </div>
 
             <div class="info">
+                <div id="audioonlyblock" class="block">
+                    <p class="centerd">Прямий ефір завершено. <a id="audio_only" href="javascript:void(0)">Слухати радіо</a></p>
+                </div>
+                <div id="videobackblock" class="block hidden">
+                    <p class="centerd">А ще, можна подивитись <a id="video_back" href="javascript:void(0)">запис акустичного марафону</a></p>
+                </div>
                 <div class="block">
-                   <p class="info__about">
+                    <p class="info__about">
                         Абсолютно новий формат ефіру Радіо КПІ. Чотири години музиканти знаходитимуться в студії та по черзі гратимуть акустичні варіанти своїх пісень.<br><br>
                         
                     </p>
@@ -117,6 +142,8 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="player.js"></script>
+
     <script type="text/javascript">
     if(!$('html').hasClass('ua-mobile')) {
 
@@ -126,6 +153,35 @@
         });
         
     }
+
+    var video_iframe = document.getElementById("yt").contentWindow;
+
+    var switch_audio = function() {
+        if ($('#video').hasClass('hidden')) {
+            
+            $('#video').removeClass('hidden');
+            $('#audioonlyblock').removeClass('hidden');
+            $('#videobackblock').addClass('hidden');
+
+            if($('#radioIcon').hasClass('ricon-pause')) {
+                radioClick(true);
+            }
+            
+
+        } else {
+
+            $('#video').addClass('hidden');
+            $('#videobackblock').removeClass('hidden');
+            $('#audioonlyblock').addClass('hidden');
+
+            video_iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+
+        }
+    };
+
+    $('#audio_only').click(switch_audio);
+
+    $('#video_back').click(switch_audio);
     </script>
 
     <script>
@@ -137,6 +193,6 @@
               ga('create', 'UA-63397830-1', 'auto');
               ga('send', 'pageview');
 
-            </script>
+    </script>
 </body>
 </html>

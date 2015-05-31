@@ -51,10 +51,13 @@
 					</p>
 				</div>
 
-				<a href="javascript:void(0)" class="btn btn-playtime margin-middle">
+				<a href="javascript:void(0)" id="start" class="btn btn-playtime margin-middle">
 						Приступить к заказу
 				</a>
 			</div>
+		</div>
+		<div id="question" class="flex hide">
+			
 		</div>
 
 		<footer class="flex">
@@ -70,6 +73,33 @@
 		</footer>
 
 	</div>
+	
+	<script id="common-question-template" type="text/x-handlebars-template">
+		
+		<div class="inner-q margin-middle">
+			
+			{{#if image}}
+			<img src="css/assets/screenshots/{{image}}">
+			{{else}}
+			<img src="css/assets/border1.png">
+			{{/if}}
+
+			<ul class="ans-list flex">
+				{{listAnswers}}
+			</ul>
+
+			<p class="question">{{q}}</p>
+
+			<div class="buttons flex">
+
+				<button class="answer-button prev" data-prev="{{prev}}" onClick="app.prev(this)">Назад</button>
+				<button class="answer-button next" onClick="app.next()">Далее</button>
+
+			</div>			
+
+		</div>
+
+	</script>
 
 	<script type="text/javascript" src="js/app.js"></script>
 
