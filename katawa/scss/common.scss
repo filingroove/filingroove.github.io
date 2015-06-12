@@ -99,7 +99,7 @@ footer {
 	padding: 0px 2.5vw;
 }
 
-#loader, #question {
+#loader, #question, #error, #final, #not_found {
 	position: relative;
 	height: 68vh;
 	width: 100%;
@@ -115,19 +115,134 @@ footer {
 	}
 }
 
-#question {
+#question, #error, #final, #not_found {
 	margin-top: -68vh;
 	height: 85vh;
 	overflow: hidden;
 
 	&.crossfade {
 		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+#error, #final, #not_found {
+	margin-top: -85vh;
+}
+
+#error, #not_found {
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+}
+
+#final {
+	justify-content: center;
+	flex-direction: column;
+
+	.container {
+		width: 65vw;
+		height: 100%;
+		text-align: center;
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+
+		h2 {
+			margin: 0px;
+		}
+
+		em {
+			display: block;
+		}
+	}
+
+	form {
+		width: 100%;
+		height: 48vh;
+
+		.column-left {
+			width: 35%;
+			padding: 0px 2%;
+			float: left;
+		}
+
+		.column-right {
+			width: 57%;
+			padding: 0px 2%;
+			float: left;
+			height: 100%;
+		}
+
+		p {
+			margin: 0.5em;
+		}
+
+		input {
+			border-radius: 4px;
+			display: block;
+			border: 1px solid rgba(0,0,0,0.25);
+			height: 1.5em;
+			padding: 0.2em 4%;
+			min-width: 91%;
+			margin-bottom: 0.25em;
+		}
+
+		.flex {
+			margin-bottom: 0.25em;
+		}
+	}
+
+	.button-container {
+		margin: 1.5em 0;
+		justify-content: center;
+	}
+
+	#owl-container {
+		
+		width: 44%;
+		margin: 0 auto;
+		position: relative;
+		z-index: 4;
+		top: -96%;
+		height: 96%;
+		overflow: hidden;
+		cursor: pointer;
+	}
+
+	#artwork-container {
+		
+		@extend #owl-container;
+		
+		pointer-events: none;
+		top: 0;
+		height: 100%;
+		z-index: 9;
+		
+		&.ru {
+			background: url(assets/Cover_rus.png) center center no-repeat;
+			background-size: contain;
+		}
+
+		&.en {
+			background: url(assets/Cover_eng.png) center center no-repeat;
+			background-size: contain;
+		}
+	}
+
+	.owl-item {
+		margin-top: 1em;
+
+		img {
+			width: 100%;
+			max-height: 100%;
+		}
 	}
 }
 
 .inner-q {
 	width: 65vw;
-	height: 85vh;
+	height: 25em;
 	text-align: center;
 	font-size: 1.05em;
 	
@@ -150,6 +265,11 @@ footer {
   		padding: 0;
 	}
 
+	.buttons {
+		justify-content: center;
+	}
+}
+
 	.answer, .answer-button {
 		display: block;
 		background: url('assets/answer.png') center no-repeat;
@@ -157,7 +277,6 @@ footer {
 		padding: 0.25em 0.5em;
 		margin: 0.5em;
 		background-size: 100% 100%;
-		box-shadow: 0px 4px 4px 0px rgba(#000000, 0.6);
 		cursor: pointer;
 
 		@include transition(0.3s);
@@ -179,18 +298,12 @@ footer {
 	.answer-button {
 		min-width: 10vw;
 		margin-top: 0px;
-		box-shadow: none;
 		border: none;
 
 		&:focused {
 			outline: none;
 		}
 	}
-
-	.buttons {
-		justify-content: center;
-	}
-}
 
 .border1 {
 	background: url('assets/border1.png') no-repeat;
@@ -209,6 +322,14 @@ footer {
 
 .margin-middle {
 	margin: 0 auto;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
 }
 
 .flex {
@@ -252,3 +373,45 @@ footer {
 	opacity: 0;
 }
 
+@media screen and (min-aspect-ratio: 4/3) and (max-aspect-ratio: 16/10) {
+	#question, #error, #final, #not_found {
+		height: 68vh;
+		margin-top: -68vh;
+	}
+
+	#artwork {
+		&.hide {
+			opacity: 1;
+			bottom: 0px;
+		}
+	}
+
+	#final {
+		.container {
+			height: 65vh;
+		}
+
+		form {
+			height: 35vh;
+		}
+
+		#owl-container {
+			top: -92%;
+			height: 85%;
+		}
+
+		#artwork-container {
+			top: 0;
+			height: 100%;
+		}
+	}
+
+	footer {
+		&.hide {
+			opacity: 1;
+			margin-bottom: 0px;
+			pointer-events: auto;
+		}
+	}
+
+}

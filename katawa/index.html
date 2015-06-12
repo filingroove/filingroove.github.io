@@ -6,8 +6,16 @@
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/switchery.min.css">
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.theme.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/handlebars.js"></script>
+	<script type="text/javascript" src="js/switchery.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
 
 </head>
 <body>
@@ -16,10 +24,9 @@
 
 	<!-- Это — блок, в котором существуют модальные окна -->
 	<div id="modal-bg">
-		
 	</div>
 
-	<div id="artwork"></div>
+	<div id="artwork" class="hide"></div>
 	
 	<!-- А тут — контент -->
 	<div id="container">
@@ -29,8 +36,8 @@
 			<div class="logo"></div>
 
 			<div class="menu flex">
-				<a href="javascript:void(0)">Главная</a>
-				<a href="javascript:void(0)">Заказ</a>
+				<a href="/">Главная</a>
+				<a href="javascript:void(0)" onClick="app.start()">Заказ</a>
 				<a href="javascript:void(0)">Katawa Shoujo</a>
 				<a href="javascript:void(0)">Галерея</a>
 				<a href="javascript:void(0)">Производитель</a>
@@ -38,7 +45,7 @@
 
 		</header>
 		
-		<div id="loader" class="flex">
+		<div id="loader" class="flex hide">
 			<!-- Тут вот будет динамически загружаться шаблоны -->
 
 			<div class="main margin-middle border1">
@@ -59,8 +66,65 @@
 		<div id="question" class="flex hide">
 			
 		</div>
+		<div id="final" class="flex crossfade">
+			<div class="container">
+				<div id="final-heading" class="title">
+					<!-- А тут будет заголовок с учётом выбраного языка, ветки и концовки -->
+				</div>
+					
+					<form action="javascript:void(0)">
+						<div class="column-left">
+							<p>Контактные данные:</p>
+							<input name="first-name" type="text" placeholder="Имя">
+							<input name="email" type="email" placeholder="Email">
+							<input name="tel" type="tel" placeholder="Контактный телефон">
+							<p>Оформление книги:</p>
 
-		<footer class="flex">
+							<div class="flex">
+								<label for="" class="pull-left">Полноцветная печать</label>
+								<input type="checkbox" class="js-switch pull-right">
+							</div>
+
+							<div class="flex">
+								<label for="" class="pull-left">Твёрдый переплёт</label>
+								<input type="checkbox" class="js-switch pull-right">
+							</div>
+
+							<div class="flex">
+								<label for="" class="pull-left">Лента-закладка</label>
+								<input type="checkbox" class="js-switch pull-right">
+							</div>
+						</div>
+						<div class="column-right">
+							<!-- Артворки с учётом выбраной ветки и языка -->
+
+							<div id="artwork-container"></div>
+							<div id="owl-container" class="owl-carousel"></div>					  
+
+						</div>
+					</form>
+
+					<div class="button-container flex">
+						<button class="answer-button">Сбросить</button>
+						<button class="answer-button">Заказать</button>
+					</div>
+
+			</div>
+		</div>
+		<div id="not_found" class="flex crossfade">
+			<img src="css/assets/404_2.png">
+			<div style="font-size: 3.5em">Ядолжнаидтиуменядела</div>
+			<p style="font-size: 1.8em">этой страницы нет</p>
+			<button id="NF-prev" class="answer-button prev" data-prev="" onClick="app.prev(this)">Назад</button>
+		</div>
+
+		<div id="error" class="flex hide">
+			<div style="font-size: 3.5em">Что-то пошло не так</div>
+			<p style="font-size: 1.8em">Комманда специально обученных (и очень милых) моэ сейчас работает над решением этой проблемы.</p>
+			<p>А пока попробуйте перезагрузить страницу</p>
+		</div>
+
+		<footer class="flex hide">
 
 			<div class="pull-left">
 				
@@ -100,8 +164,18 @@
 		</div>
 
 	</script>
+	
+	<script id="final-heading-template" type="text/x-handlebars-template">
+		{{generateHeading}}
+	</script>
 
+	<script id="artworktype" type="text/x-handlebars-template">
+		
+	</script>
+	
+	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+
 
 </body>
 </html>

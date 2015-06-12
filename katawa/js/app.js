@@ -26,7 +26,7 @@
 var app = function() {
 	"use strict"; 
 
-	var lang, route, ending, qdb, source, template, html, currentQuestion;
+	var lang, route, ending, qdb, source, template, FinalHeadingTemplate, html, currentQuestion, owl;
 
 	return {
 		init: function() {
@@ -36,10 +36,12 @@ var app = function() {
 				
 				qdb = data;
 				console.info("Done!");
+				$('footer, #artwork, #loader').removeClass('hide');
 
 			}).fail(function() {
 
 				console.error("Can't load JSON! Make sure it exists in a local folder and is valid.");
+				app.showError();
 
 			});
 
@@ -67,13 +69,20 @@ var app = function() {
 			  	}
 			  	
 			  	for (var i = this.ans.length - 1; i >= 0; i--) {
-			  		retString += "<li class='answer' onClick='app.choose(this)' data-ansID='"+i+"' data-next='"+this.next[i]+"'>"+this.ans[i]+"</li>\n";
+			  		retString += "<li class='answer' onClick='app.choose(this)' data-ansID='"+i;
+			  		
+			  		if (this.endings) {
+			  			retString += "' data-end='"+this.endings[i];
+			  		}
+
+			  		retString += "' data-next='"+this.next[i]+"'>"+this.ans[i]+"</li>\n";
 			  	}
 
 			  	return new Handlebars.SafeString(retString);
 
 			  } else {
 
+			  	app.showError();
 			  	console.error("Ans and next array lenght are different. Check your JSON structure");
 			  	return false;
 
@@ -81,10 +90,76 @@ var app = function() {
 
 			});
 
-			source = $("#common-question-template").html();
-			template = Handlebars.compile(source);
+			Handlebars.registerHelper('generateHeading', function() {
+				
+				var retString = "<h2>";
+
+				if (app.retRoute() === "hanako") {
+
+					retString += "История Ханако";
+
+				} else if (app.retRoute() === "emi") {
+
+					retString += "История Эми";
+
+				} else if (app.retRoute() === "lilly") {
+
+					retString += "История Лилли";
+
+				}
+
+				retString += "</h2>\n<em>";
+
+				if (app.retEnding() === "neg") {
+
+					retString += "Негативная концовка";
+
+				} else if (app.retEnding() === "neu") {
+
+					retString += "Нейтральная концовка";
+
+				} else if (app.retEnding() === "pos") {
+
+					retString += "Позитивная концовка";
+
+				}
+
+				retString += "</em>\n<small>";
+
+				if (app.retLang() === "en") {
+
+					$('#artwork-container').removeClass('ru');
+					$('#artwork-container').addClass('en');
+
+					retString += "Английский - оригинал от Four Leaf Studios";
+
+				} else if (app.retLang() === "ru") {
+
+					$('#artwork-container').removeClass('en');
+					$('#artwork-container').addClass('ru');
+
+					retString += "Русский - перевод от Novellae Subs";
+
+				}
+
+				retString += "</small>";
+
+				return new Handlebars.SafeString(retString);
+
+			});
+
+			template = Handlebars.compile($("#common-question-template").html());
+			FinalHeadingTemplate = Handlebars.compile($("#final-heading-template").html());
 
 			$('#start').click(app.start);
+
+			//app.loadFinal();
+
+			var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+			elems.forEach(function(html) {
+			  var switchery = new Switchery(html);
+			});
 
 		},
 		compileQuestion: function(int) {
@@ -102,15 +177,27 @@ var app = function() {
 		},
 		setLang: function(string) {
 			lang = string;
+			console.log("Language was set to "+string);
 		},
 		setRoute: function(string) {
 			route = string;
+			console.log("Route was set to "+string);
 		},
 		setEnding: function(string) {
 			ending = string;
+			console.log("Ending was set to "+string);
 		},
-		debug: function() {
-		 	return qdb;
+		retLang: function() {
+			return lang;
+		},
+		retRoute: function() {
+			return route;
+		},
+		retEnding: function() {
+			return ending;
+		},
+		getDB: function(prop) {
+			return qdb[prop];
 		},
 		start: function() {
 			
@@ -132,27 +219,94 @@ var app = function() {
 
 			if ($('.answer.chosen').length > 0) {
 
-				$('#question').addClass('crossfade');
+					if ($('.answer.chosen').attr('data-end')) {
 
-				setTimeout(function() {
-					app.compileQuestion($('.answer.chosen').attr('data-next'))
-					$('#question').removeClass('crossfade');			
-				}, 300);			
+						app.setEnding($('.answer.chosen').attr('data-end'));
+
+					}
+
+					if ($('.answer.chosen').attr('data-next') == "not_found") {
+						
+						$("#NF-prev").attr('data-prev', currentQuestion);
+						app.loadNF();
+
+					} else if ($('.answer.chosen').attr('data-next') == "final") {
+						
+						app.loadFinal();
+
+					} else {
+						
+						app.crossfadeTo('#question', function() {
+							app.compileQuestion($('.answer.chosen').attr('data-next'));
+						});
+
+					}
 
 			} else {
-				alert("Выберите хотя бы один вариант ответа");
+				alert("Выберите хотя один вариант ответа");
 			}
 
 		},
 		prev: function(element) {
 
-			$('#question').addClass('crossfade');
-
 			setTimeout(function() {
-				app.compileQuestion(element.getAttribute('data-prev'))
-				$('#question').removeClass('crossfade');			
+				app.compileQuestion(element.getAttribute('data-prev'));
+				app.crossfadeTo('#question');		
 			}, 300);
 
+		},
+		showError: function() {
+			app.hideAll();
+			$('#error').removeClass('hide');
+		},
+		loadNF: function() {
+			app.crossfadeTo('#not_found');
+		},
+		loadFinal: function() {
+
+			$('#final-heading').html(FinalHeadingTemplate());
+
+			$('#owl-container').owlCarousel({
+			    navigation: true,
+			    singleItem: true,
+			    beforeInit: function() {
+			    	console.log('owl is alive');
+
+			    	var data = app.getDB(app.retRoute());
+  			    	var content = "";
+
+			    	for (var i in data["pictures"]) {
+
+			    		content += "<img src=\"css/assets/"+data["pictures"][i]+"\">";
+
+			    	}
+
+			    	$("#owl-container").html(content);
+
+			    }
+			});
+
+			owl = $('#owl-container').data('owlCarousel');
+
+			app.crossfadeTo('#final');
+
+		},
+		hideAll: function() {
+			$('footer, #loader, #question, #final, #not_found, #error').addClass('hide');
+		},
+		crossfadeTo: function(query, func) {
+			
+			$('#loader, #question, #final, #not_found, #error').addClass('crossfade');
+
+			setTimeout(function() {
+				
+				if(func) {
+					func();
+				}
+				
+				$(query).removeClass('crossfade');	
+			}, 300);
+			
 		}
 	};
 }();

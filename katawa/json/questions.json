@@ -26,22 +26,24 @@
 		"2": {
 			"q": "Выберите главную героиню Вашей истории",
 			"ans": ["Шизуне", "Лилли", "Ханако", "Эми", "Рин"],
-			"next": ["not_found",4,5,3,"not_fonud"],
-			"prev": 1,
+			"next": ["not_found",4,5,3,"not_found"],
+			"prev": 0,
 			"image": null
 		},
 		"3": {
 			"q": "Выберите концовку Вашей истории",
 			"ans": ["Позитивная", "Негативная"],
 			"next": ["final", "final"],
+			"endings": ["pos", "neg"],
 			"prev": 2,
 			"image": null,
 			"route": "emi"
 		},
 		"4": {
 			"q": "Выберите концовку Вашей истории",
-			"ans": ["Позитивная", "Негативная"],
+			"ans": ["Позитивная", "Нейтральная"],
 			"next": ["final", "final"],
+			"endings": ["pos", "neu"],
 			"prev": 2,
 			"image": null,
 			"route": "lilly"
@@ -50,6 +52,7 @@
 			"q": "Выберите концовку Вашей истории",
 			"ans": ["Позитивная", "Нейтральная", "Негативная"],
 			"next": ["final", "final", "final"],
+			"endings": ["pos", "neu", "neg"],
 			"prev": 2,
 			"image": null,
 			"route": "hanako"
@@ -58,7 +61,7 @@
 			"q": "Согласились ли Вы предствавиться одноклассникам?",
 			"ans": ["Да", "Нет"],
 			"next": [7, 7],
-			"prev": 1,
+			"prev": 0,
 			"image": "1_intro_image.png"
 		},	
 		"7": {
@@ -91,7 +94,7 @@
 		},
 		"11": {
 			"q": "Что Вы решили делать в сцене \"Теория эволюции обедов\"?",
-			"ans": ["Поговорит с Ханако", "Подождать Мишу и Шизуне", "Почитать книгу"],
+			"ans": ["Поговорить с Ханако", "Подождать Мишу и Шизуне", "Почитать книгу"],
 			"next": [12, 12, "not_found"],
 			"prev": 10,
 			"image": "6_lunch_image.png"
@@ -169,5 +172,8 @@
 			"image": "17_advice_image.png",
 			"ending": "bad"
 		}	
+	},
+	"hanako": {
+		"pictures": ["hanako_artworks/1.png","hanako_artworks/2.jpg","hanako_artworks/3.jpg","hanako_artworks/4.jpg","hanako_artworks/5.png","hanako_artworks/6.jpg","hanako_artworks/7.jpg"]
 	}
 }
