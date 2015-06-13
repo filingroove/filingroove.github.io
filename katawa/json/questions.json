@@ -181,12 +181,11 @@
 			"lilly_artworks/2.jpg"
 		]
 	},
-	"rin": {
+	"emi": {
 		"pictures": [
-			"rin_artworks/1.jpg",
-			"rin_artworks/2.jpg",
-			"rin_artworks/3.jpg",
-			"rin_artworks/4.jpg"
+			"emi_artworks/1.jpg",
+			"emi_artworks/2.jpg",
+			"emi_artworks/3.jpg"
 		]
 	}
 }
