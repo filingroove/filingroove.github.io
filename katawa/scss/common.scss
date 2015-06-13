@@ -427,6 +427,48 @@ footer {
 	background-position: center;
 }
 
+#about {
+	height: 65vh;
+
+	.inner {
+		height: 14em;
+		overflow: hidden;
+	}
+	.col-l {
+		width: 20vw;
+		float: left;
+
+		ul {
+			list-style: none;
+			padding: 0 1em;
+		}
+
+		hr {
+			width: 8em;
+			border-color: $font;
+			box-shadow: none;
+		}
+	}
+
+	.col-r {
+		width: 70vw;
+		float: left;
+		padding: 0 2.5vw;
+
+		.about-section {
+			opacity: 0;
+			pointer-events: none;
+
+			background: rgba(#ff0000, 0.6);
+
+			&.active {
+				opacity: 1;
+				pointer-events: auto;
+			}
+		}
+	}
+}
+
 .hide {
 	opacity: 0;
 }

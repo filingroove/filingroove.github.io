@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Katawa demo</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/common.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<!-- Комментировать код — хорошее дело :3 -->
+	
+
+	<!-- Это — блок, в котором существуют модальные окна -->
+	<div id="modal-bg">
+		<div id="gallery-img"></div>
+	</div>
+
+	
+	
+	<!-- А тут — контент -->
+	<div id="container">
+		
+		<header>
+			
+			<div class="logo"></div>
+
+			<div class="menu flex">
+				<a href="/">Главная</a>
+				<a href="about.html">Katawa Shoujo</a>
+				<a href="gallery.html">Галерея</a>
+				<a href="http://pro-print.com.ua/">Производитель</a>
+			</div>
+
+		</header>
+
+		<div id="about" class="flex">
+			
+			<div class="inner">
+				<div class="col-l">
+					<ul>
+						<li><a data-switch="main" href="javascript:void(0)">Katawa Shoujo</a></li>
+					</ul>
+					<hr>
+					<ul>
+						<li><a data-switch="rin" href="javascript:void(0)">Рин</a></li>
+						<li><a data-switch="emi" href="javascript:void(0)">Эми</a></li>
+						<li><a data-switch="hanako" href="javascript:void(0)">Ханако</a></li>
+						<li><a data-switch="lilly" href="javascript:void(0)">Лилли</a></li>
+						<li><a data-switch="shizune" href="javascript:void(0)">Шизуне</a></li>
+					</ul>
+				</div>
+				<div class="col-r">
+					<div class="about-section main active">
+						<article></article>
+					</div>
+					<div class="about-section rin">
+						<video src=""></video>
+						<div class="sprite"></div>
+						<article></article>
+					</div>
+					<div class="about-section emi">
+						<video src=""></video>
+						<div class="sprite"></div>
+						<article></article>
+					</div>
+					<div class="about-section hanako">
+						<video src=""></video>
+						<div class="sprite"></div>
+						<article></article>
+					</div>
+					<div class="about-section lilly">
+						<video src=""></video>
+						<div class="sprite"></div>
+						<article></article>
+					</div>
+					<div class="about-section shizune">
+						<video src=""></video>
+						<div class="sprite"></div>
+						<article></article>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<footer class="flex">
+
+			<div class="pull-left">
+				
+				<div class="info mobile">+380 (044) 222 11 11</div>
+				<div class="info email">info@katawabook.io</div>
+				
+				<p>© 2007-2013 Four Leaf Studios. Все права защищены. Весь оригинальный контент принадлежит его владельцам.</p>
+			</div>
+
+		</footer>	
+	</div>
+	
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			console.info("Initialized");
+
+		}) 
+		
+	</script>
+	
+
+
+</body>
+</html>

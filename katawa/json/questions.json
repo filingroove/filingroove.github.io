@@ -153,6 +153,7 @@
 			"q": "Что Вы предложили Ханако после отъезда Лилли в сцене \"Начало конца\"?",
 			"ans": ["Прогуляться", "Закончить на этом день"],
 			"next": [20, 21],
+			"endings": ["pos", "neg"],
 			"prev": 18,
 			"image": "16_farewell_image.png"
 		},	
@@ -161,16 +162,14 @@
 			"ans": ["Да", "Нет"],
 			"next": ["final", "not_found"],
 			"prev": 19,
-			"image": "17_advice_image.png",
-			"ending": "good"
+			"image": "17_advice_image.png"
 		},
 		"21": {
 			"q": "В сцене \"Участие издалека\", приняли ли Вы совет Лилли?",
 			"ans": ["Да", "Нет"],
 			"next": ["final", "not_found"],
 			"prev": 19,
-			"image": "17_advice_image.png",
-			"ending": "bad"
+			"image": "17_advice_image.png"
 		}	
 	},
 	"hanako": {

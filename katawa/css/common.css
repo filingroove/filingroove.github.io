@@ -316,6 +316,33 @@ footer {
   background-repeat: no-repeat;
   background-position: center; }
 
+#about {
+  height: 65vh; }
+  #about .inner {
+    height: 14em;
+    overflow: hidden; }
+  #about .col-l {
+    width: 20vw;
+    float: left; }
+    #about .col-l ul {
+      list-style: none;
+      padding: 0 1em; }
+    #about .col-l hr {
+      width: 8em;
+      border-color: #413f3f;
+      box-shadow: none; }
+  #about .col-r {
+    width: 70vw;
+    float: left;
+    padding: 0 2.5vw; }
+    #about .col-r .about-section {
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(255, 0, 0, 0.6); }
+      #about .col-r .about-section.active {
+        opacity: 1;
+        pointer-events: auto; }
+
 .hide {
   opacity: 0; }
 
