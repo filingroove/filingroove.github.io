@@ -338,10 +338,74 @@ footer {
     #about .col-r .about-section {
       opacity: 0;
       pointer-events: none;
-      background: rgba(255, 0, 0, 0.6); }
+      height: 14em;
+      width: 20.9em;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.6);
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out; }
+      #about .col-r .about-section.main {
+        width: 90%;
+        padding: 0 5%;
+        box-shadow: none;
+        height: 14em;
+        font-size: 0.8em;
+        margin-bottom: 4em; }
+        #about .col-r .about-section.main strong {
+          margin-top: 1em; }
       #about .col-r .about-section.active {
         opacity: 1;
         pointer-events: auto; }
+      #about .col-r .about-section:nth-child(n+2) {
+        margin-top: -14em; }
+      #about .col-r .about-section.rin .about-inner-about {
+        margin-top: 5em; }
+      #about .col-r .about-section.emi .about-inner-about {
+        margin-top: 5em; }
+      #about .col-r .about-section.emi .sprite {
+        margin-top: -0.2em; }
+      #about .col-r .about-section.hanako .about-inner-about {
+        margin-top: 4.5em; }
+      #about .col-r .about-section.lilly .about-inner-about {
+        margin-top: 5em; }
+      #about .col-r .about-section.lilly .sprite {
+        margin-top: -0.2em; }
+      #about .col-r .about-section.shizune .about-inner-about {
+        margin-top: 6em; }
+      #about .col-r .about-section.shizune .sprite {
+        margin-top: -0.2em; }
+      #about .col-r .about-section video {
+        width: 100%;
+        margin: -1.75em 0em -1.75em -3.52em;
+        width: 28em;
+        overflow: hidden; }
+      #about .col-r .about-section article {
+        width: 100%;
+        height: 100%;
+        margin-top: -12.58em;
+        background: rgba(0, 0, 0, 0.4);
+        position: relative; }
+      #about .col-r .about-section .sprite {
+        width: 7em;
+        margin-left: 0.75em;
+        margin-top: -1.3em;
+        float: left; }
+      #about .col-r .about-section .about-inner-about {
+        margin-left: 16.5em;
+        margin-right: 0.8em;
+        font-size: 0.5em;
+        float: left;
+        position: absolute;
+        padding: 1em;
+        opacity: 0.9; }
+      #about .col-r .about-section strong {
+        text-align: center;
+        display: block;
+        font-size: 2em; }
 
 .hide {
   opacity: 0; }
@@ -363,6 +427,42 @@ footer {
   #final #artwork-container {
     top: 0;
     height: 100%; }
+  #about .inner {
+    height: 23em; }
+    #about .inner .about-section {
+      width: 31.69em;
+      height: 22em; }
+      #about .inner .about-section video {
+        margin: -1.75em 0em -1.75em -5.3em;
+        width: 42.3em; }
+      #about .inner .about-section article {
+        margin-top: -20.64em; }
+      #about .inner .about-section .sprite {
+        width: 10.9em; }
+      #about .inner .about-section .about-inner-about {
+        margin-left: 22rem;
+        font-size: 0.8em;
+        padding: 1.25em; }
+      #about .inner .about-section.main {
+        margin-bottom: 14em; }
+      #about .inner .about-section:nth-child(n+2) {
+        margin-top: -22em; }
+      #about .inner .about-section.rin .about-inner-about {
+        margin-top: 4em; }
+      #about .inner .about-section.emi .about-inner-about {
+        margin-top: 4em; }
+      #about .inner .about-section.emi .sprite {
+        margin-top: -0.2em; }
+      #about .inner .about-section.hanako .about-inner-about {
+        margin-top: 3.5em; }
+      #about .inner .about-section.lilly .about-inner-about {
+        margin-top: 5em; }
+      #about .inner .about-section.lilly .sprite {
+        margin-top: -0.2em; }
+      #about .inner .about-section.shizune .about-inner-about {
+        margin-top: 6em; }
+      #about .inner .about-section.shizune .sprite {
+        margin-top: -0.2em; }
   footer.hide {
     opacity: 1;
     margin-bottom: 0px;

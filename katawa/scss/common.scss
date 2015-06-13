@@ -458,12 +458,115 @@ footer {
 		.about-section {
 			opacity: 0;
 			pointer-events: none;
+			height: 14em;
+			width: 20.9em;
+			overflow: hidden;
+			margin: 0 auto;
 
-			background: rgba(#ff0000, 0.6);
+			box-shadow: 0px 0px 6px 0px rgba(#000, 0.6);
+
+			@include transition(0.5s);
+
+			&.main {
+				width: 90%;
+				padding: 0 5%;
+				box-shadow: none;
+				height: 14em;
+				font-size: 0.8em;
+				margin-bottom: 4em;
+
+				strong {
+					margin-top: 1em;
+				}
+			}					
 
 			&.active {
 				opacity: 1;
 				pointer-events: auto;
+			}
+
+			&:nth-child(n+2) {
+				margin-top: -14em;
+			}
+
+			&.rin {
+				.about-inner-about {
+					margin-top: 5em;
+				}
+			}
+
+			&.emi {
+				.about-inner-about {
+					margin-top: 5em;
+				}
+
+				.sprite {
+					margin-top: -0.2em;
+				}
+			}
+
+			&.hanako {
+				.about-inner-about {
+					margin-top: 4.5em;
+				}
+			}
+
+			&.lilly {
+				.about-inner-about {
+					margin-top: 5em;
+				}
+
+				.sprite {
+					margin-top: -0.2em;
+				}
+			}
+
+			&.shizune {
+				.about-inner-about {
+					margin-top: 6em;
+				}
+
+				.sprite {
+					margin-top: -0.2em;
+				}
+			}
+
+			video {
+				width: 100%;
+				margin: -1.75em 0em -1.75em -3.52em;
+				width: 28em;
+				overflow: hidden;
+			}
+
+			article {
+				width: 100%;
+				height: 100%;
+				margin-top: -12.58em;
+				background: rgba(#000,0.4);
+				position: relative;
+			}
+
+			.sprite {
+				width: 7em;
+				margin-left: 0.75em;
+				margin-top: -1.3em;
+				float: left;
+			}
+
+			.about-inner-about {
+				margin-left: 16.5em;
+				margin-right: 0.8em;
+				font-size: 0.5em;
+				float: left;
+				position: absolute;
+				padding: 1em;
+				opacity: 0.9;
+			}
+
+			strong {
+				text-align: center;
+				display: block;
+				font-size: 2em;
 			}
 		}
 	}
@@ -503,6 +606,86 @@ footer {
 		#artwork-container {
 			top: 0;
 			height: 100%;
+		}
+	}
+
+	#about {
+		.inner {
+			height: 23em;
+
+			.about-section {
+				width: 31.69em;
+				height: 22em;
+
+				video {
+					margin: -1.75em 0em -1.75em -5.3em;
+					width: 42.3em;
+				}
+
+				article {
+					margin-top: -20.64em;
+				}
+
+				.sprite {
+					width: 10.9em;
+				}
+
+				.about-inner-about {
+					margin-left: 22rem;
+					font-size: 0.8em;
+					padding: 1.25em;
+				}
+
+				&.main {
+					margin-bottom: 14em;
+				}
+
+				&:nth-child(n+2) {
+					margin-top: -22em;
+				}
+
+				&.rin {
+					.about-inner-about {
+						margin-top: 4em;
+					}
+				}
+
+				&.emi {
+					.about-inner-about {
+						margin-top: 4em;
+					}
+
+					.sprite {
+						margin-top: -0.2em;
+					}
+				}
+
+				&.hanako {
+					.about-inner-about {
+						margin-top: 3.5em;
+					}
+				}
+
+				&.lilly {
+					.about-inner-about {
+						margin-top: 5em;
+					}
+
+					.sprite {
+						margin-top: -0.2em;
+					}
+				}
+
+				&.shizune {
+					.about-inner-about {
+						margin-top: 6em;
+					}
+
+					.sprite {
+						margin-top: -0.2em;
+					}
+				}
+			}
 		}
 	}
 
