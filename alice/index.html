@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	
+	<meta charset="UTF-8">
+	<title>Алиса в зазеркалье</title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/common.css">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/handlebars.runtime-v3.0.3.js"></script>
+	<script type="text/javascript" src="Handlebars.templates"></script>
+	<script type="text/javascript" src="js/turn.min.js"></script>
+
+</head>
+<body>
+	<div id="modal" class="overlay">
+		<div id="loading" class="active">
+			
+		</div>
+	</div>
+
+	<div id="container">
+		
+		<div id="book">
+		
+		</div>
+
+	</div>
+	
+
+	<script type="text/javascript">
+
+		var pages;
+
+		console.log("Init!");
+		
+		$.getJSON('json/alice.json', function(data) {
+
+			$('#book').html(Handlebars.templates.page(data));
+
+			pages = data.pages.length+4;
+
+			console.log("Partial rendered successfully!");
+
+		}).done(function() {
+
+			
+			$('#book').turn({
+				width: '36.8em',
+				height: '23em',
+				autoCenter: true
+			});
+			
+
+			$(window).resize(function() {
+				$('#book').turn("size", '36.8em', '23em');
+				$('#book').turn("resize");
+			});
+
+			/*$('#book').prepend('<div class="cover-back front"><div class="inner"></div></div>');
+			$('#book').append('<div class="cover-back back"><div class="inner"></div></div>');
+
+			$('#book').bind("turning", function(event, page, view) {
+			  //console.log(page);
+
+			  if (page === 2) {
+			  	$('.cover-back.back').addClass('display');
+			  }
+
+			  if (page === 3) {
+			  	$('.cover-back.front').removeClass('display');
+			  }
+
+			  if (page === pages-2) {
+			  	$('.cover-back.back').removeClass('display');
+			  }
+			  
+			});
+
+			$('#book').bind("start", function(event, pageObject, corner) {
+			  //console.log("start: "+pageObject.page);
+
+			  if (pageObject.page === 5) {
+			  	$('.cover-back.front').addClass('display');
+			  }
+
+			  if (pageObject.page === pages-4) {
+			  	$('.cover-back.back').addClass('display');
+			  }
+
+			});*/
+
+			$('#modal').removeClass('overlay');
+			$('#loading').removeClass('active');
+
+			console.log("this is what comes after");
+
+		}).fail(function() {
+
+			console.error("Failed! JSON not found or is not valid");
+
+		})
+	</script>
+</body>
+</html>

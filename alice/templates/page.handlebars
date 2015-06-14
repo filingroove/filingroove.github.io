@@ -1,0 +1,49 @@
+<div class="hard front"></div>
+<div class="hard front">
+	<div class="endpaper"></div>
+</div>
+
+{{#each pages}}
+<div class="page">
+	
+	{{#if type0 }}
+	<div class="inner type0">
+	
+		<video src="css/assets/video/{{video}}"></video>
+		<p>{{{p}}}</p>
+	{{/if}}
+
+	{{#if type1 }}
+	<div class="inner type1">
+
+		<p>{{{p}}}</p>
+		<video src="css/assets/video/{{video}}"></video>
+	{{/if}}
+
+	{{#if type2 }}
+	<div class="inner type2">
+
+		<p>{{{p}}}</p>
+	{{/if}}
+
+	{{#if type3 }}
+	<div class="inner type3">
+		
+		<p>{{{p}}}</p>
+	{{/if}}
+	
+	{{#if page}}	
+		<p class="page-number">{{page}}</p>
+	{{/if}}
+
+	</div>
+</div>
+{{/each}}
+
+<div class="hard back">
+	<div class="endpaper"></div>
+</div>
+<div class="hard back"></div>
+
+
+
