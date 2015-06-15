@@ -124,8 +124,11 @@
 
 				$('.home, .home-back').click(contents);
 
-				$('#modal').removeClass('overlay');
-				$('#loading').removeClass('active');
+				$('#book').ready(function() {
+					$('#modal').removeClass('overlay');
+					$('#loading').removeClass('active');
+				})
+				
 
 				console.log("this is what comes after");
 
