@@ -10,7 +10,8 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/handlebars.runtime-v3.0.3.js"></script>
-	<script type="text/javascript" src="Handlebars.templates"></script>
+	<script type="text/javascript" src="page.templates"></script>
+	<script type="text/javascript" src="contents.templates"></script>
 	<script type="text/javascript" src="js/turn.min.js"></script>
 
 </head>
@@ -22,6 +23,9 @@
 
 		<div id="contents">
 			<div class="home-back"></div>
+			<div class="contents-list">
+				
+			</div>
 		</div>
 	</div>
 
@@ -62,6 +66,7 @@
 			$.getJSON('json/alice.json', function(data) {
 
 				$('#book').html(Handlebars.templates.page(data));
+				$('#contents .contents-list').html(Handlebars.templates.contents(data));
 
 				pages = data.pages.length+4;
 
@@ -111,6 +116,11 @@
 						$("#book").turn("previous");
 					}					
 				});
+
+				$('.contents-link').click(function() {
+					$('#book').turn("page", $(this).attr('data-page'));
+					contents();
+				})
 
 				$('.home, .home-back').click(contents);
 

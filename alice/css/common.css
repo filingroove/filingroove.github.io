@@ -104,6 +104,7 @@ body {
   transition: all 0.4s ease-out;
   pointer-events: none;
   opacity: 0;
+  font-family: 'eb_garamondregular', georgia;
   width: 94vw;
   height: 80vh;
   padding: 2vh 2vw; }
@@ -120,7 +121,25 @@ body {
     background-size: contain;
     width: 2em;
     height: 2em;
-    float: right; }
+    position: absolute;
+    top: 2em;
+    right: 2em; }
+  #contents .contents-list {
+    color: #FCF4D5;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.4em; }
+  #contents .contents-link {
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    cursor: pointer; }
+    #contents .contents-link:hover {
+      opacity: 0.8; }
+    #contents .contents-link:active {
+      opacity: 0.6; }
 
 #loading {
   -webkit-transition: all 0.4s ease-out;
@@ -221,16 +240,16 @@ body {
       text-align: center;
       overflow: visible; }
     .page .inner.type0 p, .page .inner.type1 p {
-      height: 6.4em; }
+      height: 7.3em; }
     .page .inner.type0 .page-number, .page .inner.type1 .page-number {
       margin-top: 0.5em; }
     .page .inner.type1 p {
-      margin-bottom: 0.5em; }
+      margin-bottom: 0.69em; }
     .page .inner.type1 h2 + p {
       height: 3.8em;
       margin-bottom: 1.3em; }
     .page .inner.type0 p {
-      margin-top: 0.5em; }
+      margin-top: 0.69em; }
     .page .inner.type2 p {
       height: 21.3em; }
     .page .inner.type2 h2 + p {
@@ -285,7 +304,8 @@ body {
   -moz-transition: all 0.25s ease-out;
   -ms-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out; }
+  transition: all 0.25s ease-out;
+  cursor: pointer; }
   .arrow:hover, .home:hover {
     opacity: 0.8; }
   .arrow:active, .home:active {
@@ -323,4 +343,7 @@ body {
     #controls .arrow {
       float: none !important; }
   .fuck-media-query-sadface {
-    display: none; } }
+    display: none; }
+  contents-list {
+    font-size: 1.3em;
+    line-height: 1.6em; } }
