@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "VK PRISM",
+  "version": "1",
+
+  "content_scripts": [
+    {
+      "matches": ["https://vk.com/im*"],
+      "css": ["prism.css"],
+      "js": ["prism.js", "vk-hook.js"]
+    }
+  ]
+  
+}

@@ -1,1 +1,0 @@
-<?php echo file_get_contents("http://r.kpi.ua/wp-content/themes/radio-vintage/js/sys_getsong.php"); ?>

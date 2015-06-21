@@ -1,1 +1,0 @@
-if (typeof pluso != "undefined") pluso.setCounter("2", "http://edpol.org/special/kpi1984/", undefined, undefined, undefined);
