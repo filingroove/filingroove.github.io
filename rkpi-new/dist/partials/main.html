@@ -1,0 +1,100 @@
+<section id="slider">
+
+	<div class="inner-container">
+		<div class="left">
+
+			<a class="slider-item" ng-repeat="item in featured">
+				<img src="{{item.img}}" alt="{{item.title}}">
+				<span class="desc">
+					<strong>{{item.title}}</strong>
+				</span>
+			</a>
+
+		</div>
+		<!-- .left end -->
+		
+		<div class="right">
+		
+			<div class="caret"></div>
+		
+			<div class="featured" ng-repeat="item in featured">
+				<strong class="heading">{{item.title}}</strong>
+				<p class="excerpt">{{item.desc}}</p>
+			</div>
+		
+		</div>
+		<!-- .right end -->
+	</div>
+</section>
+
+<section id="main-content">
+	
+	<div class="inner-container">
+		
+		<section class="main left">
+			
+			<section id="articles">
+				<h2>Тексты</h2>
+				
+				<article>
+					<h2>Непонятная статья 1</h2>
+					<em>01 января 2016</em>
+				</article>
+				<article>
+					<h2>Непонятная статья 2</h2>
+					<em>02 января 2016</em>				
+				</article>
+				<article>
+					<h2>Непонятная статья 3</h2>
+					<em>31 января 2016</em>				
+				</article>
+				<article>
+					<h2>Непонятная статья 4</h2>
+					<em>32 января 2016</em>				
+				</article>
+				<article>
+					<h2>Непонятная статья 5</h2>
+					<em>51 января 2016</em>				
+				</article>
+
+				<div class="clear"></div>
+			</section>
+
+			<section class="videos">
+				<article>
+					
+				</article>
+				<article>
+					
+				</article>
+				<article>
+					
+				</article>
+			</section>
+			
+		</section>
+
+		
+		
+		<aside>
+			
+			<!-- RKPI.me website -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8541334314227797"
+                data-ad-slot="7098715663"
+                data-ad-format="auto">
+            </ins>
+
+			<div class="social">
+				<a href="https://vk.com/rkpime"></a>
+				<a href="https://fb.com/rkpime"></a>
+				<a href="https://twitter.com/rkpime"></a>
+				<a href="http://soundcloud.com/rkpime"></a>
+				<a href="http://instagram.com/rkpime"></a>
+			</div>
+		
+		</aside>
+	</div>
+
+</section>

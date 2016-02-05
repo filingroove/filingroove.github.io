@@ -1,0 +1,29 @@
+@keyframes materialResponse {
+  0% {
+    width: 0;
+    height: 0;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.1); }
+  100% {
+    width: 250%;
+    height: 250%;
+    margin: -125%;
+    background: rgba(255, 255, 255, 0.4); } }
+
+@keyframes materialResponseDark {
+  0% {
+    width: 0;
+    height: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.1); }
+  100% {
+    width: 250%;
+    height: 250%;
+    margin: -125%;
+    background: rgba(0, 0, 0, 0.4); } }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
