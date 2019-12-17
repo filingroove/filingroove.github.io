@@ -1,2 +1,0 @@
-heroku pg:transfer --from postgres://pritchi-test:pritchi@localhost:5432/pritchi_development --to postgres://sbzczrnmovecnu:RuNmTFXifzWcTiDXKKRRPMA3Yc@ec2-54-217-202-109.eu-west-1.compute.amazonaws.com:5432/dac4hduvelkr4k
-	
